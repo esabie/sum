@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ALIKUTEE</title>
-       <meta name="viewport" width="device-width, initial-scale=1.0">
+        <title>ALIKUTEE | Register</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <section>
             <div class="col">
                 <div class="card h-100">
-                   
                     <div class="container" id="container">
                         <div class="form-container sign-up-container">
-                            <form action="#">
+                            <form action="insert.php" method="post">
                                 <h1>Create Account</h1>
-                                <input type="text" placeholder="Name" />
-                                <input type="email" placeholder="Email" />
-                                <input type="password" placeholder="Password" />
-                                <input type="tel" placeholder="Phone number" />
-                                <label for="cars">Choose a car:</label>
-                                    <select id="cars" name="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="fiat">Fiat</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                                <button>Sign Up</button>
+                                <input type="text" placeholder="First Name" name="fname" required />
+                                <input type="text" placeholder="Last Name" name="lname" required />
+                                <input type="tel" placeholder="Phone number" name="number" required  />
+                                <input type="email" placeholder="Email" name="email" required />
+                                <input type="password" placeholder="Password" name="password" required />
+                                <button type="submit" name="submit">Sign Up</button>
                             </form>
                         </div>
                         <div class="form-container sign-in-container">
@@ -45,7 +38,7 @@
                                     <button class="ghost" id="signIn">Sign In</button>
                                 </div>
                                 <div class="overlay-panel overlay-right">
-                                    <h1>Hello, Friend!</h1>
+                                    <h1>Hello, Bossu!</h1>
                                     <p>Don't have an account? Enter your personal details and start journey with us</p>
                                     <button class="ghost" id="signUp">Sign Up</button>
                                 </div>
