@@ -1,26 +1,41 @@
 <?php
-if(isset($_POST['submit'])){
-$fname=$_POST['fname'];
-$lname=$_POST['lname'];
+
+$fname=$_POST['first_name'];
+$lname=$_POST['last_name'];
 $email=$_POST['email'];
 $number=$_POST['number'];
 $password=$_POST['password'];
-}
 
 $host="localhost";
-$dbUsername="esabie";
+$dbUsername="eosabie";
 $dbPassword="password";
 $dbname="signup";
 
 //create connection
-$con =  new mysqli($host, $dbUsername, $dbPassword, $dbname);
+$con =  new mysqli($host, $dbUsername, $dbPassword, $dbname) or die("Connection Error!");
 
-if (mysqli_connection_error()) {
-    die('Connect Error('. mysqli_connection_errno().')'. mysqli_connection_error());
-}else {
-    $SELECT = "SELECT email From Register Where email = ? Limit 1";
-    $INSERT = "INSERT Into Register (fname, lname, number, email, password) values(?,?,?,?,?)";
+// Create connection and Check connection
+//$conn = mysqli_connect($servername, $username, $password) or die("Unable to Connect");
 
+$fnameErr = $lnameErr = $emailErr  = $numberErr = $passErr = " ";
+    
+if(isset($_POST['submit'])){
+    }
+
+    
+
+
+
+
+    $SELECT = "SELECT email From signup Where email = ? Limit 1";
+    $INSERT = "INSERT Into signup (first_name, last_name, number, email, password) values(?,?,?,?,?)";
+if (mysqli_query($con ,$SELECT ,  $INSERT )){
+    echo header("refresh:1;url=home.html");
+}
+
+else{
+    echo "Invalid details";
+}
     //prepare statement
     $stmt =  $conn->prepare($SELECT);
     $stmt->bind_param("s", $email);
@@ -41,5 +56,5 @@ if (mysqli_connection_error()) {
     }
     $stmt->close();
     $conn->close();
-}
+
 ?>
